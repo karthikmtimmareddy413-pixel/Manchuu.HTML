@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Manchuuu 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+    .card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      padding: 45px 35px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      animation: fadeIn 2s ease;
+      max-width: 420px;
+    }
+    h1 { color: #ff7aa2; font-size: 34px; margin-bottom: 8px; }
+    h2 { font-size: 22px; font-weight: normal; margin-bottom: 22px; }
+    p { font-size: 18px; line-height: 1.6; margin-bottom: 28px; }
+    .buttons { position: relative; height: 60px; }
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #yes { background: #ff4d6d; color: white; }
+    #yes:hover { transform: scale(1.1); }
+    #no { background: #ccc; position: absolute; left: 60%; }
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 5s linear infinite;
+      color: #ff7aa2;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/7d6x8d.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>Manjusha 💖</h1>
+    <h2>(My Manchuuu 😌)</h2>
+
+    <p>
+      From our <b>first chatting</b> till now,<br>
+      you slowly became <b>my whole world</b> 🌍❤️<br><br>
+      <i>“Neenu nanna jeevanada chinna bhaga aagide.”</i>
+    </p>
+
+    <h2>Will you go on a <b>dinner date</b> with me? 🌹</h2>
+
+    <div class="buttons">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 🙈</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="text-align:center; padding:40px;">
+          <h1 style="font-size:48px; color:#ff7aa2;">Yesss 💖</h1>
+          <p style="font-size:24px;">
+            Manchuuu,<br>
+            you just made me the happiest person ❤️<br><br>
+            Dinner date confirmed 🍽️✨<br>
+            <i>Ee dina nanna jeevanada special day.</i>
+          </p>
+        </div>
+      `;
+      createHearts();
+    });
+
+    function createHearts() {
+      for (let i = 0; i < 40; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+      }
+    }
+  </script>
+
+</body>
+</html>
